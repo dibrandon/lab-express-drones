@@ -17,10 +17,10 @@ const dronesArr = [
   .then((response) => {
     console.log("BD arriba");
 
-    return Drones.insertMany(dronesArr);
+    return Drones.create(dronesArr);
   })
   .then((response) => {
-    console.log("drones insertados en la DB");
+    console.log("drones insertados en la DB: " + response.length);
 
     mongoose.connection.close();
   })
