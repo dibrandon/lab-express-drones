@@ -1,3 +1,4 @@
+const e = require('express');
 const express = require('express');
 const router = express.Router();
 const Drones = require("../models/Drone.model");
@@ -16,13 +17,26 @@ router.get('/drones', (req, res, next) => {
 });
 
 router.get('/drones/create', (req, res, next) => {
-  // Iteration #3: Add a new drone
+  // Iteration #3: render del formulario
   res.render("drones/create-form.hbs")
 });
 
 router.post('/drones/create', (req, res, next) => {
-  // Iteration #3: Add a new drone
-  // ... your code here
+  // Iteration #3: con datos del formulario agregar el nuevo drone
+  console.log(req.body);
+const name = req.body.name;
+const propellers = req.body.propellers;
+const maxSpeed = req.body.maxSpeed;
+
+Drones.create({
+  name: name,
+  propellers: propellers,
+  maxSpeed: maxSpeed
+}).then((res)=>{
+  console.log("entra")
+  res.redirect("/drones")
+})
+.catch(()=>{res.render("drones/create")})
 });
 
 router.get('/drones/:id/edit', (req, res, next) => {
