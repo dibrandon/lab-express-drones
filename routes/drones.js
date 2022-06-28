@@ -8,7 +8,7 @@ router.get('/drones', (req, res, next) => {
   Drones.find()
   .then((response) => {
     console.log(response);
-    res.render("../views/drones/list.hbs", { response });
+    res.render("drones/list.hbs", { response });
   })
   .catch((err) => {
     next(err);
@@ -17,7 +17,7 @@ router.get('/drones', (req, res, next) => {
 
 router.get('/drones/create', (req, res, next) => {
   // Iteration #3: Add a new drone
-  // ... your code here
+  res.render("drones/create-form.hbs")
 });
 
 router.post('/drones/create', (req, res, next) => {
