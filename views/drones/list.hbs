@@ -1,9 +1,17 @@
 
    <h2>Available drone</h2> 
    {{#each response}}
+<div>
    <h4>Drone name: {{this.name}}</h4>
-   <h4>Propellers number: {{this.propellers}}</h4>
-   <h4>Top speed: {{this.maxSpeed}}</h4>
+   <p> Propellers number: {{this.propellers}} <br>
+   Top speed: {{this.maxSpeed}} <br>
+   </p>
+    <p>--------------------------------------</p>
+   
+</div>
+
+
+   {{!-- <h4><a href="/drone/{{this._id}}">{{this.name}}</a></h4> --}}
 
    {{/each}}
 
